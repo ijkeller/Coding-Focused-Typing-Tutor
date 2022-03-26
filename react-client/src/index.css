@@ -4,6 +4,7 @@
   list-style: none;
   --padding: 1rem;
   /* 3 colors in the entire page, 60/20/10 */
+  --background-color: hsl(46, 46%, 89%);
   --main-color: hsl(6, 93%, 71%, 1);
   --main-color-offset: hsl(6, 93%, 81%, 1);
   --accent-color: hsl(0, 0%, 80%, 1);
