@@ -2,6 +2,7 @@
 #### General Assembly SEIR 110 Capstone Project
 
 ### Project Description
+
 - Coding Focused Typing Tutor
     - Place for beginner and intermediate programmers to work on their typing speed with coding specific symbols, commands, and phrases.  The user will be able to sign in and practice whatever language they prefer.  Statistics will show live at the top of the typing block and save to the user's profile.  There will be a qwerty keyboard on the bottom of the screen, showing the current keystrokes.
 
@@ -43,6 +44,7 @@
 
 - graphs in user stats
 - choice of programming language
+- about/developer page - self descriptions (devestatingly humble, most humblest) unique things (twice as many vowels as consonents in my first name (that's a lot of vowels!)
 - 
 
 ### Post-Post-MVP
@@ -50,6 +52,7 @@
 - color palette changed in settings
 - dark/light theme
 - neon option with dark background, give glow to borders, transition in and out during key press
+- realworld code blocks, picked up from open source or free access (ex: code portions of the react application)
 - 
 
 *** 
