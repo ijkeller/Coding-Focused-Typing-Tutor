@@ -12,7 +12,7 @@ function App() {
 
     <div className="App">
 
-      <div className='title'>Typing Tutor</div>
+      <div className='title'>FST CDR</div>
       <div class="timer" id="timer">0</div>
       <div class="container">
         <div class="snippet" id="snippet"> {jsSubString} </div>
