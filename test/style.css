@@ -13,15 +13,39 @@
     --highlight-color-offset: ;
     padding: 1px;
     margin: 1px;
-  }
+}
 
-  body {
+body {
     width: 95vw;
     display: flex;
     justify-content: center;
     /* align-items: center; */
     min-height: 100vh;
     margin: 0;
-  }
+}
 
-  
+.container {
+    background: white;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    overflow: hidden;
+    padding: 0 var(--padding);
+    margin-bottom: .5rem;
+    width: 700px;
+    height: 30vh;
+    max-width: 90%;
+}
+
+.timer {
+    position: absolute;
+    top: 2rem;
+    font-size: 3rem;
+    /* color: #F0DB4F; */
+    font-weight: bold;
+}
+
+/* qwerty keyboard - shadowed, moves down and left by same number of pixels and shadow goes away.  Button changes color slightly, transitions in and out over (250ms?) */
+
+
+/* snippet line width by character (75?) */
