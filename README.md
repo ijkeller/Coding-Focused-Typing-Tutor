@@ -33,16 +33,23 @@
 
 ### V2 
 
+- qwerty keyboard on screen showing letters typed
 - django backend
 - user authentication
 - saved stats
 - 
 
-### V3
+### V3 - POST MVP
 
-- qwerty keyboard on screen showing letters typed
 - graphs in user stats
 - choice of programming language
+- 
+
+### Post-Post-MVP
+
+- color palette changed in settings
+- dark/light theme
+- neon option with dark background, give glow to borders, transition in and out during key press
 - 
 
 *** 
