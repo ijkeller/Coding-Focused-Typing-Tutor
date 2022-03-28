@@ -10,8 +10,11 @@ inputElement.addEventListener('input', () => {
     const arraySnippet = snippetElement.querySelectorAll('span')
     const arrayInputValue = inputElement.value.split('')
     arraySnippet.forEach((characterSpan, index) => {
-        const character = arrayValue[index]
-        if (character == characterSpan.innerText) {
+        const character = arrayInputValue[index]
+        if (character == null) {
+            characterSpan.classList.remove('correct')
+            characterSpan.classList.remove('incorrect')
+        } else if (character == characterSpan.innerText) {
             characterSpan.classList.add('correct')
             characterSpan.classList.remove('incorrect')
         } else {
@@ -24,9 +27,10 @@ inputElement.addEventListener('input', () => {
 
 
 async function newSnippet() {
-    quote.split('').forEach(character => {
+    const snippetText = snippetElement.innerText
+    snippetElement.innerHTML = ''
+    snippetText.split('').forEach(character => {
         const characterSpan = document.createElement('span')
-        characterSpan.classList.add('correct')
         characterSpan.innerText = character
         snippet.appendChild(characterSpan)
     })
