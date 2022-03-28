@@ -12,37 +12,115 @@
     --highlight-color: ;
     --highlight-color-offset: ;
     padding: 1px;
-    margin: 1px;
+    margin: 1px auto;
 }
 
 body {
     width: 95vw;
-    display: flex;
+    height: 97vh;
+    display: grid;
     justify-content: center;
-    /* align-items: center; */
-    min-height: 100vh;
-    margin: 0;
+    align-items: center;
+    grid-template-columns: 85% 15%;
+    grid-template-rows: 7% auto auto 7%;
 }
 
-.container {
+.nav {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    width: 80%;
+    height: 90%;
+    /* display: flex; */
+
+    background: white;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    padding: 0 var(--padding);
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+
+.button {
+    background: white;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    padding: 0 var(--padding);
+    justify-content: center;
+    margin-bottom: .5rem;
+}
+
+.title {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    text-align: center;
+    font-size: 3rem;
+    margin: 0 auto;
+    font-weight: bold;
+    text-shadow:  1px 1px 8px rgba(62, 106, 168, .8);
+}
+
+.card {
+    /* display: grid; */
     background: white;
     border: none;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
     border-radius: .25rem;
     overflow: hidden;
     padding: 0 var(--padding);
+    justify-content: center;
     margin-bottom: .5rem;
-    width: 700px;
+    width: 75vw;
     height: 30vh;
     max-width: 90%;
 }
 
+#typing-container {
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+#qwerty-container {
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+.data {
+    display: inline-flex;
+    width: 95%;
+    align-items: center;
+}
+
 .timer {
-    position: absolute;
-    top: 2rem;
-    font-size: 3rem;
+    font-size: 2.2rem;
     /* color: #F0DB4F; */
     font-weight: bold;
+    justify-self: right;
+}
+
+.snippet {
+    width: 100%;
+    height: 35%;
+    border-radius: .25em;
+    margin: .5rem auto;
+    padding: .5rem;
+    justify-self: center;
+
+    background: white;
+    border: none;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    padding: 0 var(--padding);
+    margin-bottom: .5rem;
+}
+
+.user-input {
+    width: 90%;
+    height: 40%;
+    border-radius: .25em;
+    margin: .5rem auto;
+    padding: .5rem;
 }
 
 /* qwerty keyboard - shadowed, moves down and left by same number of pixels and shadow goes away.  Button changes color slightly, transitions in and out over (250ms?) */
