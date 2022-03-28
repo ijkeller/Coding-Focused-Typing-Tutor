@@ -141,7 +141,8 @@ li {
 }
 
 .incorrect {
-    color: var(--)
+    color: var(--highlight-color);
+    text-decoration: underline;
 }
 
 /* qwerty keyboard - shadowed, moves down and left by same number of pixels and shadow goes away.  Button changes color slightly, transitions in and out over (250ms?) */
