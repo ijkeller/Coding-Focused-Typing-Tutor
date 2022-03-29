@@ -1,13 +1,11 @@
 import React from 'react';
-import { jsString } from './components/snippet';
+import { jsSubString } from './jsSnippet';
+import Stats from './stats';
 
 
 
 
-function NewSnippet() {
-    const snippetElement = document.getElementById('snippet')
-    const inputElement = document.getElementById('userInput')
-
+function TypingContainer() {
 
 
     // inputElement.addEventListener('input', () => {
@@ -35,7 +33,6 @@ function NewSnippet() {
     // })
 
 
-
     // async function newSnippet() {
     //     const snippetText = snippetElement.innerText
     //     snippetElement.innerHTML = ''
@@ -50,9 +47,19 @@ function NewSnippet() {
 
     // newSnippet()
 
+
+    return (
+
+        <div className="card" id="typing-container">
+            <Stats />
+            <div className="snippet" id="snippet">Mauris congue euismod metus non laoreet. Phasellus tempus convallis sem eu varius. In interdum mollis sem. Phasellus id erat a est blandit finibus. Morbi facilisis pulvinar lacus, in ultrices lorem suscipit sit amet. </div>
+            <textarea className="user-input" id="userInput" spellcheck="false" placeholder='Start Typing...' onClick=''></textarea>
+        </div>
+
+    )
+
+
 }
 
 
-
-
-export default NewSnippet;
+export default TypingContainer;
