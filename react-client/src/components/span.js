@@ -9,7 +9,8 @@ function Span(props) {
             key={props.i}
             className={
                 `${props.correctClass ? 'correct' : ''}${props.incorrectClass ? 'incorrect' : ''}`
-            }>
+            }
+            id={`sp${props.id}`} >
             {props.snippetCharacter}
         </span>
 
