@@ -23,31 +23,43 @@ function TypingContainer() {
     )
 
     console.log('before handleChange: currentSnippet[0]: ' + currentSnippet[0]) // f
-    console.log('before handleChange: snippetArray[0]: ' + snippetArray[0]) // [object object]
+    console.log('before handleChange: currentSnippet[2]: ' + currentSnippet[2]) // r
+    console.log('before handleChange: snippetArray[0]: ' + snippetArray[0]) // [object object] - snippetArray should only be used for display
+    console.log('before handleChange: snippetArray[2]: ' + snippetArray[2]) // [object object]
+    console.log('before handleChange: userInput: ' + userInput) // (nothing shown)
+    console.log('before handleChange: userInput[0]: ' + userInput[0]) // undefined
+    console.log('before handleChange: userInput[2]: ' + userInput[2]) // undefined
     console.log('-----------------')
     
     const handleChange = (e) => {
         const textAreaInput = e.target.value
-        // console.log('in handleChange: textAreaInput: ' + textAreaInput) // asd
+        // console.log('in handleChange: textAreaInput: ' + textAreaInput) // asdf
         userInput = textAreaInput
-        console.log('in handleChange: userInput: ' + userInput) // asd
-        console.log('in handleChange: userInput[0]: ' + userInput[0]) // asd
+        console.log('in handleChange: userInput: ' + userInput) // asdf
+        console.log('in handleChange: userInput[0]: ' + userInput[0]) // a
+        console.log('in handleChange: userInput[2]: ' + userInput[2]) // d
         const splitInput = userInput.split('')
-        // console.log("in handleChange: userInput.split(''): " + userInput.split('')) // a,s,d
-        console.log('in handleChange: splitInput: ' + splitInput) // a,s,d
+        // console.log("in handleChange: userInput.split(''): " + userInput.split('')) // a,s,d,f
+        console.log('in handleChange: splitInput: ' + splitInput) // a,s,d,f
         console.log('in handleChange: splitInput[0]: ' + splitInput[0]) // a
-        console.log('in handleChange: splitInput[2]: ' + splitInput[2]) // d
+        console.log('in handleChange: splitInput[2]: ' + splitInput[2]) // d - doesn't look like there's a need for splitInput, does the same as userInput
+        console.log('in handleChange: currentSnippet[0]: ' + currentSnippet[0]) // f
+        console.log('in handleChange: currentSnippet[2]: ' + currentSnippet[2]) // r
+        console.log('in handleChange: snippetArray[0]: ' + snippetArray[0]) // [object object] - snippetArray should only be used for display
+        console.log('in handleChange: snippetArray[2]: ' + snippetArray[2]) // [object object]
         console.log('***********')
 
         let correct = true
 
-        snippetArray.forEach((snippetCharacter, index) => {
-            console.log('in handleChange/snippetArray.for Each: snippetCharacter: ' + snippetCharacter) // [object object]
-            console.log('in handleChange/snippetArray.for Each: snippetCharacter.innerText: ' + snippetCharacter.innerText) // undefined
-            console.log('in handleChange/snippetArray.for Each: snippetCharacter.value: ' + snippetCharacter.value) // undefined
+        currentSnippet.forEach((snippetCharacter, index) => { // - for each loop is causeing a problem somewhere
+            // console.log('-----in handleChange/snippetArray.forEach: -----')
+            // console.log('snippetCharacter: ' + snippetCharacter) // [object object] - how do I access the value inside the span?
+            // console.log('snippetCharacter.innerText: ' + snippetCharacter.innerText) // undefined
+            // console.log('snippetCharacter.innerHTML: ' + snippetCharacter.innerHTML) // undefined
+            // console.log('snippetCharacter.value: ' + snippetCharacter.value) // undefined
+            // console.log('+++++++++++++++++')
             const userCharacter = userInput[index]
-            console.log('in handleChange/snippetArray.for Each: userCharacter = ' + userCharacter) // 
-            console.log('+++++++++++++++++')
+            // console.log('in handleChange/snippetArray.for Each: userCharacter = ' + userCharacter) // undefined
             if (userCharacter == undefined) {
                 setCorrectClass(false)
                 setIncorrectClass(false)
