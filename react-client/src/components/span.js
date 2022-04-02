@@ -14,30 +14,26 @@ function Span(props) {
     let correctClass = false
     let incorrectClass = false
 
-    let correct = true
+    
 
     snippetArray.forEach((snippetCharacter, index) => {
 
         const userCharacter = props.userInput[index]
         
-        console.log('userCharacter: ' + userCharacter + ' ' + index)
-        console.log('snippetCharacter: ' +  snippetCharacter + ' ' + index)
-        
+        console.log('uc: ' + userCharacter + ' == sc: ' + snippetCharacter + ' ' + (userCharacter == snippetCharacter))
 
         if (userCharacter == undefined) {
-            console.log('(userCharacter == undefined) returned: ' + (userCharacter == undefined))
-            // setCorrectClass(false)
-            // setIncorrectClass(false)
-            correct = false
+
+            return ''
+
         } else if (userCharacter == snippetCharacter) {
-            // console.log('(userCharacter == snippetCharacter) returned: ' + (userCharacter == snippetCharacter))
-            correctClass = true
-            // setIncorrectClass(false)
+
+            return 'correct'
+
         } else {
-            // console.log('else ran')
-            // setCorrectClass(false)
-            incorrectClass = true
-            correct = false
+            
+            return 'incorrect'
+
         }
 
     })
@@ -46,14 +42,14 @@ function Span(props) {
 
         <span
             key={props.i}
-            className={
-                `${correctClass ? 'correct' : ''}${incorrectClass ? 'incorrect' : ''}`
-            }
+            className={classFunction(props.i)}
             id={`sp${props.id}`} >
             {props.snippetCharacter}
         </span>
 
     )
+
+    
 }
 
 export default Span;
