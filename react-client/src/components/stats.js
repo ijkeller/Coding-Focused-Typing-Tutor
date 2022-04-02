@@ -3,19 +3,21 @@
 import React, { useState, useEffect } from "react";
 // import Timer from './timer'
 
-function Stats() {
+function Stats(props) {
 
     const [time, setTime] = useState(0)
-    const [start, setStart] = useState(false)
+    // const [start, setStart] = useState(false)
     const [errorCount, setErrorCount] = useState(0)
 
+    const timerToggle = props.userActive
+    
 
     // starttimer passed from typingContainer useState testing if userInput has any input
 
     useEffect(() => {
         let interval = null;
 
-        if(start) {
+        if(timerToggle) {
             interval = setInterval(() => {
                 setTime(prevTime => prevTime + 10)
             }, 10)
@@ -24,7 +26,9 @@ function Stats() {
         }
 
         return () => clearInterval(interval)
-    }, [start])
+    }, [timerToggle])
+
+
 
     return (
         <div className="data">
@@ -32,9 +36,9 @@ function Stats() {
             <div className="stats" id="errors">Errors: 0</div>
             <div className="language" id="language">Language: JavaScript</div>
             <div className="timer" id="timer"> 
-                <span>{("0" + Math.floor((time / 60000) % 60)).slice(-1)}:</span> 
-                <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
-                <span>{("0" + (time/ 10) % 1000).slice(-2)}</span>
+                <span className="minutes" >{("0" + Math.floor((time / 60000) % 60)).slice(-1)}:</span> 
+                <span className="seconds" >{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+                <span className="milliseconds" >{("0" + (time/ 10) % 1000).slice(-2)}</span>
             </div>
             {/* <div>
                 <button onClick={() => setStart(true)}>Start</button>
