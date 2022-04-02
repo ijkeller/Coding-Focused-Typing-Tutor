@@ -6,38 +6,29 @@ import Span from './span';
 
 function TypingContainer() {
 
-    
-
+    // useState for snippet and user input
     const [currentSnippet, setCurrentSnippet] = useState(jsSubString)
+    const [userInput, setUserInput] = useState('')
 
+    // convert current snippet
     const snippetArray = currentSnippet.split('')
-
-    let userInput = ''
+    console.log('snippetArray type: ' + (typeof snippetArray))
 
     const displaySnippet = snippetArray.map((snippet, i) => (
+
             <Span
-                // 
+                userInput={userInput}
                 key={i}
                 id={i}
                 snippetCharacter={snippet}
             />)
+
     )
     
     
-
     const handleChange = (e) => {
-        const textAreaInput = e.target.value
-
-        userInput = textAreaInput.split('')
-
-        userInput.map((userCharacter, i) => (
-
-            <Span
-            userCharacter={userCharacter}
-            />
-
-        ))
-
+        
+        setUserInput(e.target.value.split(''))
 
     }
 
