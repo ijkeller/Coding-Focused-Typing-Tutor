@@ -7,49 +7,22 @@ function Span(props) {
     // const [correctClass, setCorrectClass] = useState(false)
     // const [incorrectClass, setIncorrectClass] = useState(false)
 
-    const [currentSnippet, setCurrentSnippet] = useState(jsSubString)
+    const i = props.index
 
-    const snippetArray = currentSnippet.split('')
+    const correctClass = (props.userInput[i] == props.snippetCharacter)
 
-    let correctClass = false
-    let incorrectClass = false
-
-    
-
-    snippetArray.forEach((snippetCharacter, index) => {
-
-        const userCharacter = props.userInput[index]
-        
-        console.log('uc: ' + userCharacter + ' == sc: ' + snippetCharacter + ' ' + (userCharacter == snippetCharacter))
-
-        if (userCharacter == undefined) {
-
-            return ''
-
-        } else if (userCharacter == snippetCharacter) {
-
-            return 'correct'
-
-        } else {
-            
-            return 'incorrect'
-
-        }
-
-    })
+    const incorrectClass = (props.userInput[i] != props.snippetCharacter && props.userInput[i] != undefined)
 
     return (
 
         <span
-            key={props.i}
-            className={classFunction(props.i)}
-            id={`sp${props.id}`} >
+            className={`${correctClass ? 'correct' : ''}${incorrectClass ? 'incorrect' : ''}`}
+            id={`sp${props.index}`} >
             {props.snippetCharacter}
         </span>
 
     )
 
-    
 }
 
 export default Span;
