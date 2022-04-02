@@ -11,23 +11,22 @@ function TypingContainer() {
     const [userInput, setUserInput] = useState('')
 
     // convert current snippet
-    const snippetArray = currentSnippet.split('')
-    console.log('snippetArray type: ' + (typeof snippetArray))
+    const snippetObject = currentSnippet.split('')
 
-    const displaySnippet = snippetArray.map((snippet, i) => (
+    // display snippet in seperate spans
+    const displaySnippet = snippetObject.map((snippet, index) => (
 
-            <Span
-                userInput={userInput}
-                key={i}
-                id={i}
-                snippetCharacter={snippet}
-            />)
+        <Span
+            userInput={userInput}
+            key={index}
+            index={index}
+            snippetCharacter={snippet}
+        />)
 
     )
-    
-    
+
     const handleChange = (e) => {
-        
+
         setUserInput(e.target.value.split(''))
 
     }

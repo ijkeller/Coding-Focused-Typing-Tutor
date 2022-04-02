@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
-import { jsSubString } from './jsSnippet';
-
 
 function Span(props) {
-
-    // const [correctClass, setCorrectClass] = useState(false)
-    // const [incorrectClass, setIncorrectClass] = useState(false)
 
     const i = props.index
 
@@ -22,7 +17,6 @@ function Span(props) {
         </span>
 
     )
-
 }
 
 export default Span;
