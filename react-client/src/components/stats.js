@@ -7,11 +7,9 @@ function Stats(props) {
 
     const [time, setTime] = useState(0)
     // const [start, setStart] = useState(false)
-    const [errorCount, setErrorCount] = useState(0)
 
     const timerToggle = props.userActive
     
-
     // starttimer passed from typingContainer useState testing if userInput has any input
 
     useEffect(() => {
@@ -27,7 +25,6 @@ function Stats(props) {
 
         return () => clearInterval(interval)
     }, [timerToggle])
-
 
 
     return (

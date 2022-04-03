@@ -24,10 +24,15 @@ function TypingContainer() {
         />)
     )
 
+    const boolInput = (userInput[0] != undefined)
+    // const onFocus = () => boolInput ? console.log('onFocus says true') : console.log('onFocus, but no input')
     const onFocus = () => setUserActive(true)
     const onBlur = () => setUserActive(false)
 
-    console.log(userActive)
+    console.log('userActive' + userActive)
+    console.log('userInput[0]: ' + userInput[0])
+    console.log('boolInput: ' + boolInput)
+    console.log('boolInput type: ' + typeof boolInput)
 
     const handleChange = (e) => {
 
@@ -42,6 +47,7 @@ function TypingContainer() {
             <div className="snippet" id="snippet"> {displaySnippet} </div>
 
             <textarea className="user-input" id="userInput" spellCheck="false" placeholder='Start Typing...' onChange={handleChange} onFocus={onFocus} onBlur={onBlur} ></textarea>
+            {console.log('--------------')}
         </div>
 
     )
