@@ -22,19 +22,36 @@ function TypingContainer() {
             key={index}
             index={index}
             snippetCharacter={snippet}
-        />)
-    )
+        />
+    ))
 
-    
+    let errorCounter = 0
+
+    const errorHandler = () => {
+        
+        for (let i = 0; i < snippetObject.length; i++ ){
+            if ((userInput[i] != undefined) && (userInput[i] != snippetObject[i])) {
+                errorCounter += 1
+            }
+        }
+    }
+
+    errorHandler()
+
+    console.log('typingContainer errorCounter: ' + errorCounter)
+    console.log("errorCounter type: " + typeof errorCounter)
+    console.log('+++++++++++++++++++++++++')
+
     // const onFocus = (() => (userInput[0] != undefined) ? console.log('onFucos, user active') : console.log('onFocus, but no input') )
-    const onFocus = () => (setUserActive(true), setResetTimer(false))
+    const onFocus = () => (setUserActive(true))
     const onBlur = () => setUserActive(false)
-    
 
-    console.log('resetTimer: ' + resetTimer)
+    const chrTyped = userInput.length
 
-    console.log('userActive: ' + userActive)
-    console.log('userInput[0]: ' + userInput[0])
+    // console.log('resetTimer: ' + resetTimer)
+
+    // console.log('userActive: ' + userActive)
+    // console.log('userInput[0]: ' + userInput[0])
 
     const handleChange = (e) => {
 
@@ -55,11 +72,11 @@ function TypingContainer() {
     return (
 
         <div className="card" id="typing-container">
-            <Stats userActive={userActive} reset={resetTimer} />
+            <Stats userActive={userActive} reset={resetTimer} chrTyped={chrTyped} errors={errorCounter} />
             <div className="snippet" id="snippet"> {displaySnippet} </div>
 
             <textarea className="user-input" id="userInput" spellCheck="false" placeholder='Start Typing...' onChange={handleChange} onFocus={onFocus} onBlur={onBlur} value={userInput}></textarea>
-            {console.log('--------------')}
+            {/* {console.log('--------------')} */}
         </div>
 
     )
