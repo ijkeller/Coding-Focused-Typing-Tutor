@@ -25,12 +25,9 @@ function Stats(props) {
         acc = "0%";
     }
 
-    console.log('stats minutes: ' + minutes)
-    console.log("minutes type: " + typeof minutes)
+
     console.log('stats chrTyped: ' + chrTyped)
     console.log("chrTyped type: " + typeof chrTyped)
-    console.log('stats wpm: ' + wpm)
-    console.log("wpm type: " + typeof wpm)
     // console.log('stats errorCounter: ' + errorCounter)
     // console.log("errorCounter type: " + typeof errorCounter)
     // console.log('stats acc: ' + acc)

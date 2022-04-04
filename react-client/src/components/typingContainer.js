@@ -26,7 +26,7 @@ function TypingContainer() {
         />
     ))
 
-    const errorHandler = () => {
+    function errorHandler() {
         
         for (let i = 0; i < snippetObject.length; i++ ){
             if ((userInput[i] != undefined) && (userInput[i] != snippetObject[i])) {
@@ -44,11 +44,12 @@ function TypingContainer() {
 
     const chrTyped = userInput.length
 
-    console.log('typing container, chrTyped: ' + chrTyped)
-    // console.log('typingContainer errorCounter: ' + errorCounter)
-    // console.log("errorCounter type: " + typeof errorCounter)
+    console.log('TC container, chrTyped: ' + chrTyped)
+    console.log('TC, typeof chrTyped: ' + typeof chrTyped)
+    console.log('TC errorCounter: ' + errorCounter)
+    console.log("TC typeof errorCounter: " + typeof errorCounter)
     console.log('+++++++++++++++++++++++++')
-    
+
     // console.log('resetTimer: ' + resetTimer)
 
     // console.log('userActive: ' + userActive)
@@ -57,6 +58,8 @@ function TypingContainer() {
     const handleChange = (e) => {
 
         setUserInput(e.target.value)
+        errorHandler()
+
 
         if (userInput.length >= snippetObject.length)
 
