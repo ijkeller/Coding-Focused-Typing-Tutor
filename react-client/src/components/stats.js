@@ -15,22 +15,26 @@ function Stats(props) {
     const milliseconds = ("0" + (time/ 10) % 1000).slice(-2)
     
     const chrTyped = props.chrTyped
-    const wordsPerMinute = ((chrTyped / 5) / minutes)
-    const errors = props.errorCounter
-    const acc = ((chrTyped - errors) / chrTyped * 100)
+    let wpm = (Math.round((chrTyped / 5) / (((time / 1000) % 60) / 60)))
+    if(isNaN(wpm)) {
+        wpm = 0 ;
+    }
+    const errorCounter = props.errorCounter
+    let acc = ((chrTyped - errorCounter) / chrTyped * 100) + "%"
+    if(isNaN(acc)){
+        acc = "0%";
+    }
 
-    const wpm = (() => (wordsPerMinute == NaN || wordsPerMinute == Infinity) ? 0 : wordsPerMinute )
-
+    console.log('stats minutes: ' + minutes)
+    console.log("minutes type: " + typeof minutes)
     console.log('stats chrTyped: ' + chrTyped)
     console.log("chrTyped type: " + typeof chrTyped)
-    console.log('stats wordsPerMinute: ' + wordsPerMinute)
-    console.log("wordsPerMinute type: " + typeof wordsPerMinute)
     console.log('stats wpm: ' + wpm)
     console.log("wpm type: " + typeof wpm)
-    console.log('stats errors: ' + errors)
-    console.log("errors type: " + typeof errors)
-    console.log('stats acc: ' + acc)
-    console.log("acc type: " + typeof acc)
+    // console.log('stats errorCounter: ' + errorCounter)
+    // console.log("errorCounter type: " + typeof errorCounter)
+    // console.log('stats acc: ' + acc)
+    // console.log("acc type: " + typeof acc)
     console.log('-----------------')
     
     useEffect(() => {
@@ -53,14 +57,18 @@ function Stats(props) {
         }
       }, [timerReset])
 
-      
+    useEffect(() => {
+        if (timerToggle) {
+            
+        }
+    })
     
 
     return (
         <div className="data">
             <div className="stats" id="wpm">WPM: {wpm} </div>
-            <div className="stats" id="errors">Errors: {errors}</div>
-            <div className="stats" id="accuracy">Accuracy: {acc}%</div>
+            <div className="stats" id="errors">Errors: {errorCounter}</div>
+            <div className="stats" id="accuracy">Accuracy: {acc}</div>
             <div className="language" id="language">Language: JavaScript</div>
             <div className="timer" id="timer"> 
                 <span className="minutes" >{minutes}:</span> 

@@ -11,6 +11,7 @@ function TypingContainer() {
     const [userInput, setUserInput] = useState('')
     const [userActive, setUserActive] = useState(false)
     const [resetTimer, setResetTimer] = useState(false)
+    const [errorCounter, setErrorCounter] = useState(0)
 
     // convert current snippet
     const snippetObject = currentSnippet.split('')
@@ -25,22 +26,17 @@ function TypingContainer() {
         />
     ))
 
-    let errorCounter = 0
-
     const errorHandler = () => {
         
         for (let i = 0; i < snippetObject.length; i++ ){
             if ((userInput[i] != undefined) && (userInput[i] != snippetObject[i])) {
-                errorCounter += 1
+                console.log('errorCounter + 1')
+                setErrorCounter(errorCounter + 1)
             }
         }
     }
 
-    errorHandler()
 
-    console.log('typingContainer errorCounter: ' + errorCounter)
-    console.log("errorCounter type: " + typeof errorCounter)
-    console.log('+++++++++++++++++++++++++')
 
     // const onFocus = (() => (userInput[0] != undefined) ? console.log('onFucos, user active') : console.log('onFocus, but no input') )
     const onFocus = () => (setUserActive(true))
@@ -48,6 +44,11 @@ function TypingContainer() {
 
     const chrTyped = userInput.length
 
+    console.log('typing container, chrTyped: ' + chrTyped)
+    // console.log('typingContainer errorCounter: ' + errorCounter)
+    // console.log("errorCounter type: " + typeof errorCounter)
+    console.log('+++++++++++++++++++++++++')
+    
     // console.log('resetTimer: ' + resetTimer)
 
     // console.log('userActive: ' + userActive)
@@ -72,11 +73,10 @@ function TypingContainer() {
     return (
 
         <div className="card" id="typing-container">
-            <Stats userActive={userActive} reset={resetTimer} chrTyped={chrTyped} errors={errorCounter} />
+            <Stats userActive={userActive} reset={resetTimer} chrTyped={chrTyped} errorHandler={errorHandler} errorCounter={errorCounter} />
             <div className="snippet" id="snippet"> {displaySnippet} </div>
 
             <textarea className="user-input" id="userInput" spellCheck="false" placeholder='Start Typing...' onChange={handleChange} onFocus={onFocus} onBlur={onBlur} value={userInput}></textarea>
-            {/* {console.log('--------------')} */}
         </div>
 
     )
