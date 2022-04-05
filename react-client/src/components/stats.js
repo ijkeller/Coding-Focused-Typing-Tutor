@@ -1,11 +1,11 @@
 // timer based on React Stopwatch by Ray Alva - https://medium.com/codex/react-stopwatch-10bf9813d0ec
 
 import React, { useState, useEffect } from "react";
-// import Timer from './timer'
 
 function Stats(props) {
 
     const [time, setTime] = useState(0)
+    const [start, setStart] = useState(false)
 
     const timerToggle = props.userActive
     const timerReset = props.reset
@@ -25,15 +25,6 @@ function Stats(props) {
         acc = "0%";
     }
 
-
-    console.log('stats chrTyped: ' + chrTyped)
-    console.log("chrTyped type: " + typeof chrTyped)
-    // console.log('stats errorCounter: ' + errorCounter)
-    // console.log("errorCounter type: " + typeof errorCounter)
-    // console.log('stats acc: ' + acc)
-    // console.log("acc type: " + typeof acc)
-    console.log('-----------------')
-    
     useEffect(() => {
         let interval = null;
 
@@ -60,24 +51,22 @@ function Stats(props) {
         }
     })
     
-
     return (
         <div className="data">
             <div className="stats" id="wpm">WPM: {wpm} </div>
-            <div className="stats" id="errors">Errors: {errorCounter}</div>
-            <div className="stats" id="accuracy">Accuracy: {acc}</div>
+            {/* <div className="stats" id="errors">Errors: {errorCounter}</div>
+            <div className="stats" id="accuracy">Accuracy: {acc}</div> */}
             <div className="language" id="language">Language: JavaScript</div>
             <div className="timer" id="timer"> 
-                <span className="minutes" >{minutes}:</span> 
+                <span className="minutes" >{minutes}:</span>
                 <span className="seconds" >{seconds}:</span>
                 <span className="milliseconds" >{milliseconds}</span>
             </div>
             {/* <div>
-                <button onClick={() => setStart(true)}>Start</button>
-                <button onClick={() => setStart(false)}>Stop</button>
                 <button onClick={() => {setTime(0); setStart(false);}}>Reset</button>
             </div> */}
         </div>
     )
 }
+
 export default Stats;
