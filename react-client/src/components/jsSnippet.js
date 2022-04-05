@@ -8,13 +8,12 @@
 
 // 
 
-const jsSnippet = ['for (var i = 0; i < 10; i++)', '{document.write(i + ": " + i*3 + "<br />");}', 'var sum = 0;', 'for (var i = 0; i < a.length; i++)', '{sum + = a[i]; ', 'html = "";', 'for (var i of custOrder)', '{html += "<li>" + i + "</li>";}', "let boolVar = false", 'console.log(a);', 'document.write(a);', 'alert(a);', '/* Multi line comment */', '// One line comment', 'const abc = "abcdefg";', 'let len = abc.length; // string length', 'arrayName.slice(3, 6)', 'abc.toUpperCase()', 'abc.replace("abc","123"); // find and replace', 'oneTwoThree.toLowerCase();', 'str1.concat(" ", str2);', "abc.split(',');", 'ar128.toString(16);' ]
+const jsSnippet = ['var items = ["a","e","i","o","u"] var objResults = {} for(var i = 0; i < 1000000; i++){ var randomElement = items[Math.floor(Math.random()*items.length)]', "if (objResults[randomElement]){ objResults[randomElement]++ }else{ objResults[randomElement] = 1 } } console.log(objResults)", "var randomArray = (['#cc0000','#00cc00', '#0000cc']); // use _.sample var randomElement = _.sample(randomArray);", "var button = document.getElementById('enter'); var input = document.getElementById('userinput'); var ul = document.querySelector('ul');", "function inputLength() { return input.value.length; } function addListAfterClick() { if (inputLength() > 0) { createListElement(); } }", "function createListElement() { var li = document.createElement('li'); li.appendChild(document.createTextNode(input.value)); ul.appendChild(li); input.value = '' } }"]
 
 let jsString = jsSnippet.join(' ')
 
-let jsSubString = jsString.substring(0, 450)
+const jsSubString = jsSnippet[Math.floor(Math.random()*jsSnippet.length)]
 
-// , "let esc = 'Doesn\'t \n really matter \n to me'; // \n new line"
 
 
 export { jsSubString }
